@@ -1,0 +1,60 @@
+
+.custom-margin{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.navbar{
+  padding: .8rem;
+}
+.navbar-nav li{
+  padding-right: 30px;;
+}
+.nav-link{
+  font-size: 1.1em !important ;
+}
+.title{
+  margin-top: 20%;
+  text-align: center;
+  height: 25rem;
+}
+
+.title-profile-area{
+  margin-top: 3rem;
+  text-align: center;
+}
+hr{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  position: relative;
+  border-color: black;
+  border-style: dotted;
+  border-block-start-width: 7px;
+  display: block;
+  size: 10px;
+  height: 0px;
+  width: 10%;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+.social a{
+  font-size: 4.5em;
+  padding:3rem;
+}
+.fab-facebook{
+  color: #0e76a8;
+}
+.fa-github{
+  color: #211F1F;
+}
+.fa-google-plus-g{
+  color: #db4a39;
+}
+.fa-medium{
+  color: #000000;
+}
+.footer #mukesh {
+
+    font-family: cursive;
+
+}
