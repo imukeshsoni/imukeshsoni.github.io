@@ -1,4 +1,5 @@
 import { Suspense, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Canvas } from '@react-three/fiber';
 import { Fox } from '../models/index';
 import Loader from '../components/Loader';
@@ -24,6 +25,39 @@ const Contact = () => {
         setLoading(true);
         setCurrentAnimation('hit');
 
+        emailjs
+            .send(
+                import.meta.env.VITE_APP_EMAILJS_SERVICE_ID as string,
+                import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID as string,
+                {
+                    from_name: form.name,
+                    from_email: form.email,
+                    message: form.message,
+                    to_name: "Mukesh Soni",
+                    to_email: "work.mukesh@icloud.com",
+                  },
+                import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+            )
+            .then(() => {
+                setTimeout(() => {
+                    showAlert('Message sent successfully', 'success');
+                    setCurrentAnimation('idle');
+                    setForm({
+                        name: '',
+                        email: '',
+                        message: '',
+                    });
+                }, 2000);
+            })
+            .catch(() => {
+                // Handle error
+                showAlert('Failed to send message', 'danger');
+                setCurrentAnimation('idle');
+            })
+            .finally(() => {
+                hideAlert();
+                setLoading(false)
+            });
     };
 
     const handleFocus = () => setCurrentAnimation('walk');
