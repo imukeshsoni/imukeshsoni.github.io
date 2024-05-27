@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
-
+// @ts-ignore
 import scene from '../assets/3d/fox.glb';
 
 const Fox = (props: {

@@ -3,6 +3,7 @@ import { useGLTF } from '@react-three/drei';
 import { a } from '@react-spring/three';
 import * as THREE from 'three';
 
+// @ts-ignore
 import isLandScene from '../assets/3d/island.glb';
 import { useFrame, useThree } from '@react-three/fiber';
 
