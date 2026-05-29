@@ -36,6 +36,15 @@ import bitbucket from './bitbucket.svg';
 import postman from './postman.svg';
 import swagger from './swagger.svg';
 import netflix from './netflix.svg';
+import postgresql from './postgresql.svg';
+import docker from './docker.svg';
+import jenkins from './jenkins.svg';
+import gitlab from './gitlab.svg';
+import netlify from './netlify.svg';
+import supabase from './supabase.svg';
+import jest from './jest.svg';
+import cypress from './cypress.svg';
+import bedrock from './bedrock.svg';
 
 
 export {
@@ -76,5 +85,14 @@ export {
     bootstrap,
     bitbucket,
     postman,
-    swagger
+    swagger,
+    postgresql,
+    docker,
+    jenkins,
+    gitlab,
+    netlify,
+    supabase,
+    jest,
+    bedrock,
+    cypress
 };

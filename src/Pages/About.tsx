@@ -1,120 +1,122 @@
 import {
-    VerticalTimeline,
-    VerticalTimelineElement,
-} from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 
-import { skills, experiences } from '../constants/index';
-import CTA from '../components/CTA';
+import { skills, experiences } from "../constants/index";
+import CTA from "../components/CTA";
 
 const About = () => {
-    return (
-        <section className='max-container'>
-            <h1 className='head-text'>
-                Hello I'm{' '}
-                <span className='blue-gradient_text font-semibold drop-shadow'>
-                    Mukesh
+  return (
+    <section className="max-container about-container">
+      <h1 className="head-text">
+        Hello I'm{" "}
+        <span className="blue-gradient_text font-semibold drop-shadow">
+          Mukesh
+        </span>
+      </h1>
+
+      <div className="mt-5 flex flex-col gap-3 text-slate-500">
+        <p>
+          Highly analytical Senior Software Engineer with 5 years of experience
+          architecting and scaling high-performance full-stack web applications.
+          Proven expertise in designing modern Micro-Frontend architectures,
+          building secure Serverless backends, and leading production-grade
+          enterprise GenAI / RAG implementations. Expert in frontend
+          technologies including Angular 18 and React, with robust backend
+          proficiency in Node.js, Express.js, and Java Spring. Adept at managing
+          AWS Cloud infrastructure (including Bedrock and Lambda), driving
+          continuous integration, and translating complex product requirements
+          into industry-leading digital experiences.
+        </p>
+      </div>
+
+      <div className="py-10 flex flex-col">
+        <h3 className="subhead-text">My Skills</h3>
+
+        <div className="mt-16 flex flex-wrap gap-7">
+          {skills.map((skill, index: number) => (
+            <div className="block-container w-20 h-20" key={index}>
+              <div className="btn-back rounded-xl"></div>
+              <div className="btn-front rounded-xl flex flex-col justify-center items-center gap-1 px-1 text-center">
+                <img
+                  src={skill.imageUrl}
+                  alt={skill.name}
+                  className="w-1/2 h-1/2 object-contain"
+                  draggable="false"
+                  aria-label={skill.name}
+                />
+                <span className="text-[10px] font-poppins font-medium leading-tight text-slate-700">
+                  {skill.name}
                 </span>
-            </h1>
-
-            <div className='mt-5 flex flex-col gap-3 text-slate-500'>
-                <p>
-                    I'm a Full Stack Developer with 3+ years of experience in
-                    building websites and web applications.
-                </p>
+              </div>
             </div>
+          ))}
+        </div>
+      </div>
 
-            <div className='py-10 flex flex-col'>
-                <h3 className='subhead-text'>My Skills</h3>
+      <div className="py-16">
+        <h3 className="subhead-text">Work Experience</h3>
 
-                <div className='mt-16 flex flex-wrap gap-7'>
-                    {skills.map((skill: any, index: number) => (
-                        <div className='block-container w-20 h-20' key={index}>
-                            <div className='btn-back rounded-xl'></div>
-                            <div className='btn-front rounded-xl flex justify-center items-center'>
-                                <img
-                                    src={skill.imageUrl}
-                                    alt={skill.name}
-                                    className='w-1/2 h-1/2 object-contain'
-                                    draggable='false'
-                                />
-                            </div>
-                        </div>
-                    ))}
+        <div className="mt-12 flex">
+          <VerticalTimeline>
+            {experiences.map((experience) => (
+              <VerticalTimelineElement
+                key={experience.company_name}
+                date={experience.date}
+                icon={
+                  <div className="flex justify-center items-center w-full h-full">
+                    <img
+                      draggable="false"
+                      className="w-[60%] h-[60%] object-contain"
+                      src={experience.icon}
+                      alt={experience.company_name}
+                    />
+                  </div>
+                }
+                iconStyle={{
+                  backgroundColor: experience.iconBg,
+                }}
+                contentStyle={{
+                  borderBottom: "8px",
+                  borderStyle: "solid",
+                  borderBottomColor: experience.iconBg,
+                  boxShadow: "none",
+                }}
+              >
+                <div>
+                  <h3 className="text-black text-xl font-poppins font-semibold">
+                    {experience.title}
+                  </h3>
+                  <p
+                    className="text-black-500 font-medium font-base"
+                    style={{ margin: 0 }}
+                  >
+                    {experience.company_name}
+                  </p>
                 </div>
-            </div>
+                <ul className="my-5 list-disc ml-5 space-y-2">
+                  {experience.points.map((point, index) => (
+                    <li
+                      key={`experience-point-${index}`}
+                      className="text-black-500 font-normal pl-1 text-sm"
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </VerticalTimelineElement>
+            ))}
+          </VerticalTimeline>
+        </div>
+      </div>
 
-            <div className='py-16'>
-                <h3 className='subhead-text'>Work Experience</h3>
+      <hr className="border-slate-200" />
 
-                <div className='mt-5 flex flex-col gap-3 text-slate-500'>
-                    <p>
-                        I have worked in all sorts of technologies in my
-                        previous organizations that includes but not limited to
-                        Frontend, Backend and Cloud. I have a strong passion for
-                        the web and love to work on projects that make a
-                        difference.
-                    </p>
-                </div>
-
-                <div className='mt-12 flex'>
-                    <VerticalTimeline>
-                        {experiences.map((experience) => (
-                            <VerticalTimelineElement
-                                key={experience.company_name}
-                                date={experience.date}
-                                icon={
-                                    <div className='flex justify-center items-center w-full h-full'>
-                                        <img
-                                            draggable='false'
-                                            className='w-[60%] h-[60%] object-contain'
-                                            src={experience.icon}
-                                            alt={experience.company_name}
-                                        />
-                                    </div>
-                                }
-                                iconStyle={{
-                                    backgroundColor: experience.iconBg,
-                                }}
-                                contentStyle={{
-                                    borderBottom: '8px',
-                                    borderStyle: 'solid',
-                                    borderBottomColor: experience.iconBg,
-                                    boxShadow: 'none',
-                                }}
-                            >
-                                <div>
-                                    <h3 className='text-black text-xl font-poppins font-semibold'>
-                                        {experience.title}
-                                    </h3>
-                                    <p
-                                        className='text-black-500 font-medium font-base'
-                                        style={{ margin: 0 }}
-                                    >
-                                        {experience.company_name}
-                                    </p>
-                                </div>
-                                <ul className='my-5 list-disc ml-5 space-y-2'>
-                                    {experience.points.map((point, index) => (
-                                        <li
-                                            key={`experience-point-${index}`}
-                                            className='text-black-500/50 font-normal pl-1 text-sm'
-                                        >
-                                            {point}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </VerticalTimelineElement>
-                        ))}
-                    </VerticalTimeline>
-                </div>
-            </div>
-
-            <hr className='border-slate-200' />
-
-            <CTA />
-        </section>
-    );
+      <CTA />
+    </section>
+  );
 };
 
 export default About;
